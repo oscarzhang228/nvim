@@ -35,6 +35,17 @@ return {
     end,
   },
 
+  -- Telescope ToggleTerm Manager
+  {
+    "ryanmsnyder/toggleterm-manager.nvim",
+    dependencies = {
+      "akinsho/nvim-toggleterm.lua",
+      "nvim-telescope/telescope.nvim",
+      "nvim-lua/plenary.nvim",
+    },
+    config = true,
+  },
+
   -- Copilot Plugin
   {
     "zbirenbaum/copilot.lua",
