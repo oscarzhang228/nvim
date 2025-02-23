@@ -210,6 +210,22 @@ return {
     end,
   },
 
+  -- Telescope Additional Setup
+  {
+    "nvim-telescope/telescope.nvim",
+    config = function(plugin, opts)
+      require "astronvim.plugins.configs.telescope"(plugin, opts)
+      local telescope = require "telescope"
+      telescope.setup {
+        pickers = {
+          find_files = {
+            hidden = true,
+          },
+        },
+      }
+    end,
+  },
+
   -- Git Conflict Management
   { "akinsho/git-conflict.nvim", version = "*", config = true },
   {
