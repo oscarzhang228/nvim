@@ -210,6 +210,8 @@ return {
     end,
   },
 
+  -- Git Conflict Management
+  { "akinsho/git-conflict.nvim", version = "*", config = true },
   {
     "windwp/nvim-autopairs",
     config = function(plugin, opts)
