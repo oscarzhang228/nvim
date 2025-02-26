@@ -7,7 +7,14 @@ return {
     opts = {
       ensure_installed = {
         "lua_ls",
-        -- add more arguments for adding more language servers
+        "html",
+        "ts_ls",
+        "eslint",
+        "jsonls",
+        "ast_grep",
+        "nginx_language_server",
+        "pylsp",
+        "emmet_language_server",
       },
     },
   },
