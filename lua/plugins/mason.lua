@@ -13,7 +13,6 @@ return {
         "jsonls",
         "ast_grep",
         "nginx_language_server",
-        "pylsp",
         "emmet_language_server",
       },
     },
