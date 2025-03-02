@@ -7,7 +7,8 @@ return {
     config = function() require("lsp_signature").setup() end,
   },
 
-  -- Telescope ToggleTerm Manager
+  -- ToggleTerm
+
   {
     "ryanmsnyder/toggleterm-manager.nvim",
     dependencies = {
