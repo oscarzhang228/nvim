@@ -54,6 +54,7 @@ return {
           function() require("telescope.builtin").lsp_references() end,
           desc = "Find incoming references",
         },
+        ["<Leader>o"] = { function() require("oil").open_float "." end, desc = "Open oil in float" },
       },
       t = {
         ["<Esc>"] = [[<C-\><C-n>]],
