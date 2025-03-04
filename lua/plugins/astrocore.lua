@@ -1,14 +1,8 @@
--- AstroCore provides a central place to modify mappings, vim options, autocommands, and more!
--- Configuration documentation can be found with `:h astrocore`
--- NOTE: We highly recommend setting up the Lua Language Server (`:LspInstall lua_ls`)
---       as this provides autocomplete and documentation while editing
-
 ---@type LazySpec
 return {
   "AstroNvim/astrocore",
   ---@type AstroCoreOpts
   opts = {
-    -- Configure core features of AstroNvim
     features = {
       large_buf = { size = 1024 * 256, lines = 10000 }, -- set global limits for large files for disabling features like treesitter
       autopairs = true, -- enable autopairs at start
@@ -39,24 +33,25 @@ return {
     },
     mappings = {
       n = {
-        ["]b"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
-        ["[b"] = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
-        ["<Leader>bd"] = {
-          function()
-            require("astroui.status.heirline").buffer_picker(
-              function(bufnr) require("astrocore.buffer").close(bufnr) end
-            )
-          end,
-          desc = "Close buffer from tabline",
-        },
         ["<Leader>tm"] = { function() require("toggleterm-manager").open {} end, desc = "Open toggleterm-manager" },
+        -- Telescope
         ["<Leader>fi"] = {
           function() require("telescope.builtin").lsp_references() end,
           desc = "Find incoming references",
         },
-        ["<Leader>o"] = { function() require("oil").open_float "." end, desc = "Open oil in float" },
+        -- File browsing through telescope
+        ["<Leader>fd"] = {
+          function()
+            require("telescope.builtin").fd {
+              prompt_title = "Select Directory",
+              find_command = { "fd", "--type", "d" },
+            }
+          end,
+          desc = "Find directory",
+        },
       },
       t = {
+        -- terminal escape
         ["<Esc>"] = [[<C-\><C-n>]],
       },
     },
