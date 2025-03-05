@@ -1,43 +1,6 @@
 ---@type LazySpec
 return {
   {
-    "stevearc/oil.nvim",
-    ---@module 'oil'
-    ---@type oil.SetupOpts
-    opts = {},
-    config = function()
-      require("oil").setup {
-        view_options = {
-          show_hidden = false,
-          is_hidden_file = function(name, bufnr)
-            local m = name:match "^%."
-            return m ~= nil
-          end,
-          natural_order = "fast",
-          case_insensitive = false,
-          sort = {
-            { "type", "asc" },
-            { "name", "asc" },
-          },
-        },
-        watch_for_changes = false,
-      }
-    end,
-    dependencies = { { "echasnovski/mini.icons", opts = {} } },
-    lazy = false,
-  },
-
-  {
-    "ryanmsnyder/toggleterm-manager.nvim",
-    dependencies = {
-      "akinsho/nvim-toggleterm.lua",
-      "nvim-telescope/telescope.nvim",
-      "nvim-lua/plenary.nvim",
-    },
-    config = true,
-  },
-
-  {
     "karb94/neoscroll.nvim",
     opts = {},
     config = function()
@@ -63,6 +26,16 @@ return {
         post_hook = nil,
         performance_mode = false,
         ignored_events = { "WinScrolled", "CursorMoved" },
+      }
+    end,
+  },
+  {
+    "kylechui/nvim-surround",
+    version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    event = "VeryLazy",
+    config = function()
+      require("nvim-surround").setup {
+        -- Configuration here, or leave empty to use defaults
       }
     end,
   },

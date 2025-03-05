@@ -35,4 +35,41 @@ return {
       }
     end,
   },
+
+  {
+    "ryanmsnyder/toggleterm-manager.nvim",
+    dependencies = {
+      "akinsho/nvim-toggleterm.lua",
+      "nvim-telescope/telescope.nvim",
+      "nvim-lua/plenary.nvim",
+    },
+    config = true,
+  },
+
+  {
+    "stevearc/oil.nvim",
+    ---@module 'oil'
+    ---@type oil.SetupOpts
+    opts = {},
+    config = function()
+      require("oil").setup {
+        view_options = {
+          show_hidden = false,
+          is_hidden_file = function(name, bufnr)
+            local m = name:match "^%."
+            return m ~= nil
+          end,
+          natural_order = "fast",
+          case_insensitive = false,
+          sort = {
+            { "type", "asc" },
+            { "name", "asc" },
+          },
+        },
+        watch_for_changes = false,
+      }
+    end,
+    dependencies = { { "echasnovski/mini.icons", opts = {} } },
+    lazy = false,
+  },
 }
