@@ -14,5 +14,8 @@ return {
       "lua",
       "regex",
     },
+    highlight = {
+      enable = true,
+    },
   },
 }
