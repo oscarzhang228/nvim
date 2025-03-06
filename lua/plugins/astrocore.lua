@@ -39,7 +39,6 @@ return {
           function() require("telescope.builtin").lsp_references() end,
           desc = "Find incoming references",
         },
-        -- File browsing through telescope
         ["<Leader>fd"] = {
           function()
             require("telescope.builtin").fd {
@@ -48,6 +47,10 @@ return {
             }
           end,
           desc = "Find directory",
+        },
+        ["<Leader>o"] = {
+          [[<CMD>Oil<CR>]],
+          desc = "Open Oil in Parent Directory",
         },
       },
       t = {
