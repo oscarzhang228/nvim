@@ -118,4 +118,11 @@ return {
       floats = "transparent",
     } },
   },
+  {
+    "xiyaowong/transparent.nvim",
+    config = function()
+      local transparent = require "transparent"
+      transparent.clear_prefix "heirline"
+    end,
+  },
 }
