@@ -4,7 +4,7 @@ return {
     "AstroNvim/astroui",
     ---@type AstroUIOpts
     opts = {
-      colorscheme = "tokyonight-moon",
+      colorscheme = "catppuccin-mocha",
       -- Icons can be configured throughout the interface
       icons = {
         -- configure the loading of the lsp in the status line
@@ -61,40 +61,11 @@ return {
     "nvim-lualine/lualine.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
-      local custom_fname = require("lualine.components.filename"):extend()
-      local highlight = require "lualine.highlight"
-      local default_status_colors = { saved = "#408140", modified = "#800020" }
-
-      function custom_fname:init(options)
-        custom_fname.super.init(self, options)
-        self.status_colors = {
-          saved = highlight.create_component_highlight_group(
-            { bg = default_status_colors.saved },
-            "filename_status_saved",
-            self.options
-          ),
-          modified = highlight.create_component_highlight_group(
-            { bg = default_status_colors.modified },
-            "filename_status_modified",
-            self.options
-          ),
-        }
-        if self.options.color == nil then self.options.color = "" end
-      end
-
-      function custom_fname:update_status()
-        local data = custom_fname.super.update_status(self)
-        data = highlight.component_format_highlight(
-          vim.bo.modified and self.status_colors.modified or self.status_colors.saved
-        ) .. data
-        return data
-      end
-
       require("lualine").setup {
         sections = {
           lualine_a = { "mode" },
           lualine_b = { "branch" },
-          lualine_c = { custom_fname },
+          lualine_c = { "filename" },
           lualine_x = { "progress" },
           lualine_y = {},
           lualine_z = {},
@@ -109,20 +80,13 @@ return {
     "echasnovski/mini.icons",
     config = function() require("mini.icons").setup() end,
   },
-  {
-    "folke/tokyonight.nvim",
-    lazy = false,
-    priority = 1000,
-    opts = { transparent = true, styles = {
-      sidebars = "transparent",
-      floats = "transparent",
-    } },
-  },
+  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
   {
     "xiyaowong/transparent.nvim",
     config = function()
       local transparent = require "transparent"
       transparent.clear_prefix "heirline"
+      transparent.clear_prefix "lualine"
     end,
   },
 }
