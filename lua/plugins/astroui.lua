@@ -4,8 +4,7 @@ return {
     "AstroNvim/astroui",
     ---@type AstroUIOpts
     opts = {
-      transparent = true,
-      colorscheme = "catppuccin-macchiato",
+      colorscheme = "tokyonight-moon",
       -- Icons can be configured throughout the interface
       icons = {
         -- configure the loading of the lsp in the status line
@@ -103,11 +102,20 @@ return {
       }
     end,
     opts = {
-      theme = "dracula",
+      theme = "auto",
     },
   },
   {
     "echasnovski/mini.icons",
     config = function() require("mini.icons").setup() end,
+  },
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = { transparent = true, styles = {
+      sidebars = "transparent",
+      floats = "transparent",
+    } },
   },
 }
