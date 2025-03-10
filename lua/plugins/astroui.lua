@@ -25,6 +25,7 @@ return {
     "racrriga/nvim-notify",
     opts = {
       timeout = 1000,
+      background_colour = "#1a1b26",
     },
   },
   {
@@ -38,52 +39,30 @@ return {
       "MunifTanjim/nui.nvim",
       "rcarriga/nvim-notify",
     },
-    config = function()
-      require("noice").setup {
-        lsp = {
-          override = {
-            ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-            ["vim.lsp.util.stylize_markdown"] = true,
-            ["cmp.entry.get_documentation"] = true,
-          },
-        },
-        presets = {
-          bottom_search = true,
-          command_palette = true,
-          long_message_to_split = true,
-          inc_rename = false,
-          lsp_doc_border = false,
-        },
-      }
-    end,
   },
   {
     "nvim-lualine/lualine.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    config = function()
-      require("lualine").setup {
-        sections = {
-          lualine_a = { "mode" },
-          lualine_b = { "branch" },
-          lualine_c = { "filename" },
-          lualine_x = { "progress" },
-          lualine_y = {},
-          lualine_z = {},
-        },
-      }
-    end,
     opts = {
       theme = "auto",
+      sections = {
+        lualine_a = { "mode" },
+        lualine_b = { "branch" },
+        lualine_c = { "filename" },
+        lualine_x = { "progress" },
+        lualine_y = {},
+        lualine_z = {},
+      },
     },
   },
   {
     "echasnovski/mini.icons",
-    config = function() require("mini.icons").setup() end,
+    opts = {},
   },
   { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
   {
     "xiyaowong/transparent.nvim",
-    config = function()
+    opts = function()
       local transparent = require "transparent"
       transparent.clear_prefix "heirline"
       transparent.clear_prefix "lualine"
