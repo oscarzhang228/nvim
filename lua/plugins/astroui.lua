@@ -24,7 +24,9 @@ return {
   {
     "racrriga/nvim-notify",
     opts = {
-      timeout = 1000,
+      timeout = 3000,
+      render = "compact",
+      stages = "fade_in_slide_out",
       background_colour = "#1a1b26",
       top_down = false,
     },
