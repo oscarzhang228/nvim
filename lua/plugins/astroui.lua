@@ -26,6 +26,7 @@ return {
     opts = {
       timeout = 1000,
       background_colour = "#1a1b26",
+      top_down = false,
     },
   },
   {
