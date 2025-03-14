@@ -19,7 +19,7 @@ return {
     -- vim options can be configured here
     options = {
       opt = { -- vim.opt.<key>
-        relativenumber = false, -- sets vim.opt.relativenumber
+        relativenumber = true, -- sets vim.opt.relativenumber
         number = true, -- sets vim.opt.number
         spell = false, -- sets vim.opt.spell
         signcolumn = "yes", -- sets vim.opt.signcolumn to yes
@@ -51,6 +51,12 @@ return {
         ["<Leader>o"] = {
           [[<CMD>Oil<CR>]],
           desc = "Open Oil in Parent Directory",
+        },
+        ["n"] = {
+          [[nzz]],
+        },
+        ["N"] = {
+          [[Nzz]],
         },
       },
       t = {
