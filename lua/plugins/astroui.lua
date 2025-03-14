@@ -62,7 +62,27 @@ return {
     "echasnovski/mini.icons",
     opts = {},
   },
-  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000,
+    opts = {
+      styles = {
+        comments = { "italic" },
+        functions = { "bold" },
+        keywords = { "italic" },
+        operators = { "bold" },
+        conditionals = { "bold" },
+        loops = { "bold" },
+        booleans = { "bold", "italic" },
+        numbers = {},
+        types = {},
+        strings = {},
+        variables = {},
+        properties = {},
+      },
+    },
+  },
   {
     "xiyaowong/transparent.nvim",
     opts = function()
