@@ -74,14 +74,6 @@ return {
           [[<CMD>lua require('harpoon.ui').nav_prev()<CR>]],
           desc = "Go to previous Harpoon mark",
         },
-        ["<Leader>hg"] = {
-          function()
-            local markIdx = vim.fn.input "Enter mark index."
-            if markIdx == "" then return end
-            require("harpoon.ui").nav_file(tonumber(markIdx))
-          end,
-          desc = "Go to Harpoon mark",
-        },
         -- END Harpoon
         ["n"] = {
           [[nzz]],
