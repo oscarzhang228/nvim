@@ -35,9 +35,9 @@ return {
       n = {
         ["<Leader>tm"] = { function() require("toggleterm-manager").open {} end, desc = "Open toggleterm-manager" },
         -- Telescope
-        ["<Leader>fi"] = {
+        ["<Leader>fr"] = {
           function() require("telescope.builtin").lsp_references() end,
-          desc = "Find incoming references",
+          desc = "Find references",
         },
         ["<Leader>fd"] = {
           function()
