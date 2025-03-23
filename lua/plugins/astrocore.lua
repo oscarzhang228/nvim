@@ -48,10 +48,41 @@ return {
           end,
           desc = "Find directory",
         },
+        -- END Telescope
         ["<Leader>o"] = {
           [[<CMD>Oil<CR>]],
           desc = "Open Oil in Parent Directory",
         },
+        -- Harpoon
+        ["<Leader>h"] = {
+          [["<Nop"]],
+          desc = "Harpoon",
+        },
+        ["<Leader>hm"] = {
+          [[<CMD>lua require('harpoon.ui').toggle_quick_menu()<CR>]],
+          desc = "Toggle Harpoon Quick Menu",
+        },
+        ["<Leader>ha"] = {
+          [[<CMD>lua require('harpoon.mark').add_file()<CR>]],
+          desc = "Add File to Harpoon",
+        },
+        ["<Leader>hn"] = {
+          [[<CMD>lua require('harpoon.ui').nav_next()<CR>]],
+          desc = "Go to next Harpoon mark",
+        },
+        ["<Leader>hp"] = {
+          [[<CMD>lua require('harpoon.ui').nav_prev()<CR>]],
+          desc = "Go to previous Harpoon mark",
+        },
+        ["<Leader>hg"] = {
+          function()
+            local markIdx = vim.fn.input "Enter mark index."
+            if markIdx == "" then return end
+            require("harpoon.ui").nav_file(tonumber(markIdx))
+          end,
+          desc = "Go to Harpoon mark",
+        },
+        -- END Harpoon
         ["n"] = {
           [[nzz]],
         },
@@ -59,6 +90,7 @@ return {
           [[Nzz]],
         },
       },
+
       t = {
         -- terminal escape
         ["<Esc>"] = [[<C-\><C-n>]],

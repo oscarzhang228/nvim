@@ -26,6 +26,9 @@ return {
     config = function(plugin, opts)
       require "astronvim.plugins.configs.telescope"(plugin, opts)
       local telescope = require "telescope"
+
+      telescope.load_extension "fzf"
+      telescope.load_extension "harpoon"
       telescope.setup {
         pickers = {
           find_files = {
