@@ -4,7 +4,8 @@
       "cl"
     ],
     "body": [
-      "console.log($1);"
+      "console.log($1);",
+      "$0"
     ],
     "description": "Log output to console"
   }
