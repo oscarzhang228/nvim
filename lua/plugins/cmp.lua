@@ -1,41 +1,39 @@
 --- @type LazySpec
 
-return { -- override nvim-cmp plugin
+return {
   {
-    "hrsh7th/nvim-cmp",
-    -- override the options table that is used in the `require("cmp").setup()` call
-    opts = function(_, opts)
-      -- opts parameter is the default options table
-      -- the function is lazy loaded so cmp is able to be required
-      local cmp = require "cmp"
-      -- modify the mapping part of the table
-      opts.mapping["<C-x>"] = cmp.mapping.select_next_item()
-      opts.sources = cmp.config.sources {
-        { name = "copilot", priority = 1000 },
-        { name = "nvim_lsp", priority = 900 },
-        { name = "luasnip", priority = 750 },
-        {
-          name = "buffer",
-          priority = 500,
-          option = {
-            get_bufnrs = function() return vim.api.nvim_list_bufs() end,
+    "Saghen/blink.cmp",
+    dependencies = { "fang2hou/blink-copilot" },
+    opts = {
+      enabled = function()
+        local filetype = vim.bo[0].filetype
+
+        if filetype == "snacks_picker_input" then return false end
+        return true
+      end,
+      sources = {
+        default = { "copilot" },
+        providers = {
+          path = { score_offset = 3 },
+          snippets = { score_offset = 1 },
+          lsp = { score_offset = 0 },
+          buffer = { score_offset = 0 },
+          copilot = {
+            name = "copilot",
+            module = "blink-copilot",
+            score_offset = 0,
+            async = true,
           },
         },
-        { name = "path", priority = 250 },
-      }
-
-      opts.formatting.format = require("astrocore").patch_func(opts.formatting.format, function(orig, entry, vim_item)
-        local format_vim = orig(entry, vim_item)
-        format_vim.menu = ({
-          nvim_lsp = "[LSP]",
-          buffer = "[Buffer]",
-          path = "[Path]",
-          luasnip = "[LuaSnip]",
-          copilot = "[Copilot]",
-        })[entry.source.name]
-        return format_vim
-      end)
-    end,
+      },
+      completion = {
+        menu = {
+          draw = {
+            columns = { { "label", "label_description", gap = 3 }, { "source_name" } },
+          },
+        },
+      },
+    },
   },
 
   {
@@ -46,9 +44,5 @@ return { -- override nvim-cmp plugin
       suggestion = { enabled = false },
       panel = { enabled = false },
     },
-  },
-  {
-    "zbirenbaum/copilot-cmp",
-    opts = {},
   },
 }

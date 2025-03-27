@@ -33,22 +33,8 @@ return {
     },
     mappings = {
       n = {
-        ["<Leader>tm"] = { function() require("toggleterm-manager").open {} end, desc = "Open toggleterm-manager" },
-        -- Telescope
-        ["<Leader>fr"] = {
-          function() require("telescope.builtin").lsp_references() end,
-          desc = "Find references",
-        },
-        ["<Leader>fd"] = {
-          function()
-            require("telescope.builtin").fd {
-              prompt_title = "Select Directory",
-              find_command = { "fd", "--type", "d" },
-            }
-          end,
-          desc = "Find directory",
-        },
-        -- END Telescope
+        ["<Leader>fr"] = {function() require("snacks.picker").lsp_references() end, nowait = true,  desc = "Find references" },
+        ["<Leader>fd"]= {function() require("snacks.picker").files({ cmd="fd"}) end, desc = "Find directories" },
         ["<Leader>o"] = {
           [[<CMD>Oil<CR>]],
           desc = "Open Oil in Parent Directory",

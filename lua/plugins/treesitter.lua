@@ -11,7 +11,6 @@ return {
       "javascript",
       "cpp",
       "java",
-      "lua",
       "regex",
     },
     highlight = {

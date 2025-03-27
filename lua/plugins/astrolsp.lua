@@ -77,8 +77,6 @@ return {
             return client.supports_method "textDocument/semanticTokens/full" and vim.lsp.semantic_tokens ~= nil
           end,
         },
-        ["<C-d>"] = { "<C-d>zz" },
-        ["<C-u>"] = { "<C-u>zz" },
       },
     },
     -- A custom `on_attach` function to be run after the default `on_attach` function

@@ -22,16 +22,6 @@ return {
     },
   },
   {
-    "racrriga/nvim-notify",
-    opts = {
-      timeout = 3000,
-      render = "compact",
-      stages = "fade_in_slide_out",
-      background_colour = "#1a1b26",
-      top_down = false,
-    },
-  },
-  {
     "HiPhish/rainbow-delimiters.nvim",
   },
   {
@@ -40,7 +30,7 @@ return {
     opts = {},
     dependencies = {
       "MunifTanjim/nui.nvim",
-      "rcarriga/nvim-notify",
+      "folke/snacks.nvim",
     },
   },
   {
@@ -85,11 +75,16 @@ return {
         ---@param cp palette
         all = function(cp)
           return {
-            LineNr = { fg = cp.pink },
+            LineNr = { fg = cp.blue},
+            -- for directories in picker
+            NonText = {fg = cp.overlay2 }
           }
         end,
       },
+      transparent_background = true,
+      term_colors = true
     },
+
   },
   {
     "xiyaowong/transparent.nvim",

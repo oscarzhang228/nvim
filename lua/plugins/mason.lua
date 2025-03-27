@@ -1,40 +1,29 @@
 ---@type LazySpec
 return {
-  -- use mason-lspconfig to configure LSP installations
   {
-    "williamboman/mason-lspconfig.nvim",
-    -- overrides `require("mason-lspconfig").setup(...)`
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    -- overrides `require("mason-tool-installer").setup(...)`
     opts = {
       ensure_installed = {
-        "lua_ls",
-        "html",
-        "ts_ls",
-        "eslint",
-        "jsonls",
-        "ast_grep",
-        "nginx_language_server",
-        "emmet_language_server",
-      },
-    },
-  },
-  -- use mason-null-ls to configure Formatters/Linter installation for null-ls sources
-  {
-    "jay-babu/mason-null-ls.nvim",
-    -- overrides `require("mason-null-ls").setup(...)`
-    opts = {
-      ensure_installed = {
+        -- install language servers
+        "lua-language-server",
+
+        "typescript-language-server",
+        "html-lsp",
+        "emmet-language-server",
+        "eslint-lsp",
+
+        "jdtls",
+
+        -- install formatters
         "stylua",
-        -- add more arguments for adding more null-ls sources
-      },
-    },
-  },
-  {
-    "jay-babu/mason-nvim-dap.nvim",
-    -- overrides `require("mason-nvim-dap").setup(...)`
-    opts = {
-      ensure_installed = {
-        "python",
-        -- add more arguments for adding more debuggers
+
+        -- install debuggers
+        "debugpy",
+        "js-debug-adapter",
+        "java-debug-adapter",
+
+        -- install any other package
       },
     },
   },
