@@ -20,7 +20,7 @@ return {
 
         -- install debuggers
         "debugpy",
-        "js-debug-adapter",
+        "chrome-debug-adapter",
         "java-debug-adapter",
 
         -- install any other package

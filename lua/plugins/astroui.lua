@@ -25,15 +25,6 @@ return {
     "HiPhish/rainbow-delimiters.nvim",
   },
   {
-    "folke/noice.nvim",
-    event = "VeryLazy",
-    opts = {},
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-      "folke/snacks.nvim",
-    },
-  },
-  {
     "nvim-lualine/lualine.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = {
@@ -75,16 +66,15 @@ return {
         ---@param cp palette
         all = function(cp)
           return {
-            LineNr = { fg = cp.blue},
+            LineNr = { fg = cp.blue },
             -- for directories in picker
-            NonText = {fg = cp.overlay2 }
+            NonText = { fg = cp.overlay2 },
           }
         end,
       },
       transparent_background = true,
-      term_colors = true
+      term_colors = true,
     },
-
   },
   {
     "xiyaowong/transparent.nvim",
