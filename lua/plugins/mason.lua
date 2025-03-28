@@ -17,13 +17,6 @@ return {
 
         -- install formatters
         "stylua",
-
-        -- install debuggers
-        "debugpy",
-        "chrome-debug-adapter",
-        "java-debug-adapter",
-
-        -- install any other package
       },
     },
   },
