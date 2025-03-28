@@ -33,11 +33,19 @@ return {
     },
     mappings = {
       n = {
-        ["<Leader>fr"] = {function() require("snacks.picker").lsp_references() end, nowait = true,  desc = "Find references" },
-        ["<Leader>fd"]= {function() require("snacks.picker").files({ cmd="fd"}) end, desc = "Find directories" },
+        ["<Leader>fr"] = {
+          function() require("snacks.picker").lsp_references() end,
+          nowait = true,
+          desc = "Find references",
+        },
+        ["<Leader>fd"] = { function() require("snacks.picker").files { cmd = "fd" } end, desc = "Find directories" },
         ["<Leader>o"] = {
           [[<CMD>Oil<CR>]],
           desc = "Open Oil in Parent Directory",
+        },
+        ["<Leader>x"] = {
+          "Nop",
+          desc = "Trouble / Qflist",
         },
         -- Harpoon
         ["<Leader>h"] = {
